@@ -2,7 +2,7 @@
 
 <h1>Student Notes</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Student</th>
@@ -17,14 +17,14 @@
   <tbody>
     <% @student_notes.each do |student_note| %>
       <tr>
-        <td><%= student_note.student_id %></td>
+        <td><%= link_to student_note.student.name, student_note.student %></td>
         <td><%= student_note.note_one %></td>
         <td><%= student_note.note_two %></td>
         <td><%= student_note.note_three %></td>
         <td><%= student_note.report_notes %></td>
-        <td><%= link_to 'Show', student_note %></td>
-        <td><%= link_to 'Edit', edit_student_note_path(student_note) %></td>
-        <td><%= link_to 'Destroy', student_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', student_note, :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_student_note_path(student_note), :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', student_note, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Student Note', new_student_note_path %>
+<%= link_to 'New Student Note', new_student_note_path, :class => "btn btn-primary" %>

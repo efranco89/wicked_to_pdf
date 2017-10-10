@@ -11,32 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :student_id %>
-    <%= form.number_field :student_id, id: :student_note_student_id %>
-  </div>
+  <div class="col-md-6">
+    <div class="field">
+      <%= form.label :student_id %>
+      <%= form.collection_select :student_id, Student.all.order('name ASC'), :id, :name, {},:class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :note_one %>
-    <%= form.text_field :note_one, id: :student_note_note_one %>
-  </div>
+    <div class="field">
+      <%= form.label :note_one %>
+      <%= form.text_field :note_one, id: :student_note_note_one, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :note_two %>
-    <%= form.text_field :note_two, id: :student_note_note_two %>
-  </div>
+    <div class="field">
+      <%= form.label :note_two %>
+      <%= form.text_field :note_two, id: :student_note_note_two, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :note_three %>
-    <%= form.text_field :note_three, id: :student_note_note_three %>
-  </div>
+    <div class="field">
+      <%= form.label :note_three %>
+      <%= form.text_field :note_three, id: :student_note_note_three, :class => "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :report_notes %>
-    <%= form.text_area :report_notes, id: :student_note_report_notes %>
-  </div>
+    <div class="field">
+      <%= form.label :report_notes %>
+      <%= form.text_area :report_notes, id: :student_note_report_notes, :class => "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
+    
 <% end %>
