@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  note_one: 1.5
+  note_two: 1.5
+  note_three: 1.5
+  report_notes: MyText
+
+two:
+  student_id: 1
+  note_one: 1.5
+  note_two: 1.5
+  note_three: 1.5
+  report_notes: MyText

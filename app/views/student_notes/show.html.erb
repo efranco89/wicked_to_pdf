@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_note.student_id %>
+</p>
+
+<p>
+  <strong>Note one:</strong>
+  <%= @student_note.note_one %>
+</p>
+
+<p>
+  <strong>Note two:</strong>
+  <%= @student_note.note_two %>
+</p>
+
+<p>
+  <strong>Note three:</strong>
+  <%= @student_note.note_three %>
+</p>
+
+<p>
+  <strong>Report notes:</strong>
+  <%= @student_note.report_notes %>
+</p>
+
+<%= link_to 'Edit', edit_student_note_path(@student_note) %> |
+<%= link_to 'Back', student_notes_path %>

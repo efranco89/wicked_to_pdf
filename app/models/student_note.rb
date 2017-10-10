@@ -1,0 +1,2 @@
+class StudentNote < ApplicationRecord
+end
