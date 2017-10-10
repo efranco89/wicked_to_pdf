@@ -1,29 +1,69 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Student:</strong>
-  <%= @student_note.student_id %>
-</p>
+<!--Strats Title -->
+<div class="col-md-12">
+  <div class="page-header">
+    <h1>Student Notes <small><%= t 'edit.show' %></small></h1>    
+  </div>
+</div>   
+<!-- Ends Title-->
+<br>
+<div class="row">
+    <div class="col-md-12">
+      <div class="btn-toolbar pull-right" >
+        <div class="btn-group">
+          <%= link_to student_notes_path, :class => 'btn btn-default' do %>
+            <span class="glyphicon glyphicon-list-alt"></span>
+            <%= 'Back' %>
+          <% end %>
 
-<p>
-  <strong>Note one:</strong>
-  <%= @student_note.note_one %>
-</p>
+          <%= link_to student_note_path(:format => :pdf, :url_clicked => true), target: '_blank', :class => "btn btn-success hidden-print" do %>
+            <%= 'Save PDF' %>
+          <% end %>
 
-<p>
-  <strong>Note two:</strong>
-  <%= @student_note.note_two %>
-</p>
+          <%= link_to "<span class='fa fa-envelope'></span> Sent Email".html_safe, { :controller => "student_notes",
+                                      :action => :sent_notes,  
+                                      :id => @student_note
+                                    }, 
+                                    :class => "btn btn-info",
+                                    :method => :post  %>
+          
+          <%= link_to edit_student_note_path(@student_note), :class => 'btn btn-primary' do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+            <%= 'Edit' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
 
-<p>
-  <strong>Note three:</strong>
-  <%= @student_note.note_three %>
-</p>
+      <p>
+        <strong>Student:</strong>
+        <%= @student_note.student.name %>
+      </p>
 
-<p>
-  <strong>Report notes:</strong>
-  <%= @student_note.report_notes %>
-</p>
+      <p>
+        <strong>Note one:</strong>
+        <%= @student_note.note_one %>
+      </p>
 
-<%= link_to 'Edit', edit_student_note_path(@student_note) %> |
-<%= link_to 'Back', student_notes_path %>
+      <p>
+        <strong>Note two:</strong>
+        <%= @student_note.note_two %>
+      </p>
+
+      <p>
+        <strong>Note three:</strong>
+        <%= @student_note.note_three %>
+      </p>
+
+      <p>
+        <strong>Report notes:</strong>
+        <%= @student_note.report_notes %>
+      </p>
+
+    </div>
+  </div>

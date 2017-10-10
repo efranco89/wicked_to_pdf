@@ -10,6 +10,15 @@ class StudentNotesController < ApplicationController
   # GET /student_notes/1
   # GET /student_notes/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf:          'student_note_pdf', # Excluding ".pdf" extension.
+                template:     'student_notes/show.html.erb',
+                layout:       'layouts/wickedpdf.html.erb',
+                orientation:  'landscape'
+      end
+    end
   end
 
   # GET /student_notes/new
@@ -59,6 +68,13 @@ class StudentNotesController < ApplicationController
       format.html { redirect_to student_notes_url, notice: 'Student note was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def sent_notes
+    report = StudentNote.find(params[:id])
+    WickedMailer.student_note_email(report).deliver
+    redirect_to student_note_path(params[:id])
+    
   end
 
   private

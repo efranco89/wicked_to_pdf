@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bart</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bart">
+    <meta name="author" content="Enrique Franco">
+    <link rel="icon" type="image/png" href="/bart.png" sizes="64x64">
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    
+    
+    <meta charset="utf-8">
+
+    
+
+    
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+
+    
+    
+    
+  </head>
+
+  <body>
+
+   
+
+  <% @student_note = @report %>
+
+  <% @student_note = @note if @report.nil? %>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <p>
+        <strong>Student:</strong>
+        <%= @student_note.student.name %>
+      </p>
+
+      <p>
+        <strong>Note one:</strong>
+        <%= @student_note.note_one %>
+      </p>
+
+      <p>
+        <strong>Note two:</strong>
+        <%= @student_note.note_two %>
+      </p>
+
+      <p>
+        <strong>Note three:</strong>
+        <%= @student_note.note_three %>
+      </p>
+
+      <p>
+        <strong>Report notes:</strong>
+        <%= @student_note.report_notes %>
+      </p>
+
+    </div>
+  
+      
+
+        
+
+
+   
+
+
+
